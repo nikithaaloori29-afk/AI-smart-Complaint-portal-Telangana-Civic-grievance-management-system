@@ -1,65 +1,31 @@
-# AGENTS.md
+Agent 1: Complaint Classification Agent
 
-This file helps future coding agents and teammates understand the project quickly.
+Analyzes user complaints.
 
-## Project Summary
+Identifies the complaint category (Roads, Water Supply, Electricity, Sanitation, etc.).
 
-AI Smart Complaint Portal is a React + FastAPI + SQLite application for civic complaint submission, AI categorization, tracking, and admin management.
+Automatically tags complaints for faster processing.
 
-## Important Commands
+Agent 2: Priority Assessment Agent
 
-Prerequisites: Python 3.10+ and Node.js 18+.
+Determines the urgency level of a complaint.
 
-Backend:
+Assigns High, Medium, or Low priority based on keywords and issue severity.
 
-```powershell
-cd backend
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-# Optional full NLP runtime:
-pip install -r requirements-ai.txt
-uvicorn main:app --reload
-```
+Agent 3: Department Routing Agent
 
-Frontend:
+Routes complaints to the appropriate government department.
 
-```powershell
-cd frontend
-npm install
-npm run dev
-```
+Reduces manual effort and improves response time.
 
-## Key Files
+Agent 4: Status Tracking Agent
 
-- `backend/main.py`: FastAPI app setup and CORS
-- `backend/routes/complaints.py`: Complaint API endpoints
-- `backend/ai_classifier.py`: Hugging Face classification and keyword fallback
-- `backend/models.py`: SQLAlchemy complaint model
-- `backend/database.py`: SQLite connection
-- `frontend/src/services/api.js`: Axios API client
-- `frontend/src/pages/ComplaintForm.jsx`: Citizen submission flow
-- `frontend/src/pages/TrackComplaint.jsx`: Complaint tracking flow
-- `frontend/src/pages/AdminDashboard.jsx`: Admin filters, analytics, and status updates
+Monitors complaint progress.
 
-## Data Model
+Updates users regarding complaint status and resolution stages.
 
-The `complaints` table contains:
+Agent 5: Analytics & Reporting Agent
 
-- `id`
-- `name`
-- `email`
-- `location`
-- `description`
-- `category`
-- `status`
-- `created_at`
+Generates reports and statistics.
 
-## Implementation Notes
-
-- Complaint IDs use the format `CMP-XXXXXXXX`.
-- The allowed statuses are `Pending`, `In Progress`, and `Resolved`.
-- The backend creates the SQLite database automatically.
-- The frontend assumes the API is available at `http://localhost:8000`, unless `VITE_API_BASE_URL` is set.
-- Do not remove the classifier fallback. It is important for offline demos and CI environments.
-- Keep heavyweight NLP dependencies in `backend/requirements-ai.txt` unless the project owner asks for a single dependency file.
+Helps authorities identify recurring civic issues and improve services.
